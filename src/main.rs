@@ -1,6 +1,4 @@
-use data_structures::array::ArrayImplementation;
-
-
+use data_structures::array::DynamicArray;
 
 mod data_structures {
     pub mod array;
@@ -20,7 +18,7 @@ mod algorithms {
 
 fn main() {
     println!("Testing Array");
-    let mut myArray = ArrayImplementation::new();
+    let mut myArray = DynamicArray::new();
     let termToSearch = "Andrew";
 
     // Inserting Items
@@ -39,7 +37,7 @@ fn main() {
     myArray.transverse();
 
     println!("========== INSERTING at Index ==========");
-    myArray.insert_at_index("Ryan", 2);
+    myArray.insert_at("Ryan", 2);
 
     println!("========== New Size and Transverse ==========");
     myArray.size();
@@ -50,7 +48,7 @@ fn main() {
     println!("Search Result: {:?}", search_result);
 
     println!("========== Deleting MYA ==========");
-    myArray.remove_at_index(1);
+    myArray.remove_at(1);
     
     println!("========== Final Transverse ==========");
     myArray.transverse();
