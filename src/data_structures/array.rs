@@ -6,19 +6,16 @@ pub struct DynamicArray<T> {
 
 impl <T> DynamicArray<T> where T: std::fmt::Debug + PartialEq + Clone, {
 
-    // Create a new Array
     pub fn new() -> Self {
         DynamicArray {
             data: Vec::new(),
         }
     }
 
-    // Insert an element to the end of an array
     pub fn insert(&mut self, element: T){
         self.data.push(element);
     }
 
-    // Insert an element at a specific index 
     pub fn insert_at(&mut self, element: T, index: usize) -> Result<(), String> {
         if index > self.data.len() {
             return Err("Index out of bounds".to_string());
@@ -27,7 +24,6 @@ impl <T> DynamicArray<T> where T: std::fmt::Debug + PartialEq + Clone, {
         Ok(())
     }
 
-    // Remove element at a specific index
     pub fn remove_at(&mut self, index: usize) -> Result<T, String> {
         if index > self.data.len() {
             return Err("Index out of bounds".to_string());
@@ -35,19 +31,16 @@ impl <T> DynamicArray<T> where T: std::fmt::Debug + PartialEq + Clone, {
         Ok(self.data.remove(index))
     }
 
-    // Search for an element in the array 
     pub fn search(&self, element: &T) -> Option<usize> {
         self.data.iter().position(|x| x == element)
     }
 
-    // Transverse the array (print all elements)
     pub fn transverse(&self) {
         for (index, element) in self.data.iter().enumerate() {
             println!("Index: {}, Value: {:?}", index, element);
         }
     }
 
-    // Get the size of the array
     pub fn size(&self) -> usize {
         self.data.len()
     }
@@ -105,6 +98,7 @@ mod tests {
         array.insert(8);
         array.insert(1);
         array.insert(6);
+        array.insert(10);
         array.transverse();
     }
 
